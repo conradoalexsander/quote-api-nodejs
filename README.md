@@ -31,7 +31,7 @@ A fictitious star wars club page made to study Responsive pages concepts
 <br />
 <p align="center">
   <a href="https://github.com/conradoalexsander/quote-api-node">
-    <img src="sample/quote-logo.png" alt="Logo" width="30%" height="30%">
+    <img src="sample/quote-logo.png" alt="Logo" width="15%" height="15%">
   </a>
 
   <h1 align="center">Quote API</h1>
