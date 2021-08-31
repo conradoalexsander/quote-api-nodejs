@@ -1,4 +1,4 @@
-const { getRandomElement } = require('../../utils');
+const { getRandomElement } = require('./utils');
 
 describe("Get Random Element", () => {
     it("Given a valid array should get a random element in an array", () => {
