@@ -57,7 +57,9 @@ It focus on learning and exploring the Node Js express concepts, through a Quote
 
 ## <h2 id="project-requirements">:heavy_check_mark: Project Requirements </h2>
 
-- [ ] You’ve been given some starter code in the form of a front-end site and some Express.js boilerplate. You’ll use this to build several route handlers to serve up interesting quotes. As you build out your app, test out the functionality either using our front-end or with a tool like Postman. Make sure to re-run node server.js as you make changes to the server, and visit localhost:4001 in the browser to interact with the front-end.
+- [ ] 1. 
+
+You’ve been given some starter code in the form of a front-end site and some Express.js boilerplate. You’ll use this to build several route handlers to serve up interesting quotes. As you build out your app, test out the functionality either using our front-end or with a tool like Postman. Make sure to re-run node server.js as you make changes to the server, and visit localhost:4001 in the browser to interact with the front-end.
 
 As you work, your server at any point with Ctrl + C in the terminal, and then restart it to see new changes in its behavior.
 
@@ -66,9 +68,13 @@ In server.js, we’ve provided you with some imported helper functions and data:
 A quotes array with some pre-populated quotes about technology. Each quote in the array has a person and quote property. You can use our array or write your own, but make sure to have at least the person and quote properties, as the front-end that we’ve provided expects each quote to have them.
 The getRandomElement() function, which takes an array and returns a random element from that array.
 
-- [ ] Set your server to listen on the PORT variable.
+- [ ] 2.
 
-- [ ] Your API should have a GET /api/quotes/random route. This route should send back a random quote from the quotes data. The response body should have the following shape:
+ Set your server to listen on the PORT variable.
+
+- [ ] 3.
+
+ Your API should have a GET /api/quotes/random route. This route should send back a random quote from the quotes data. The response body should have the following shape:
 
 ```JSON
 {
@@ -86,7 +92,9 @@ The getRandomElement() function, which takes an array and returns a random eleme
 }
 ```
 
-- [ ] Your API should have a POST /api/quotes route for adding new quotes to the data. New quotes will be passed in a query string with two properties: quote with the quote text itself, and person with the person who is credited with saying the quote.
+- [ ] 4.
+
+ Your API should have a POST /api/quotes route for adding new quotes to the data. New quotes will be passed in a query string with two properties: quote with the quote text itself, and person with the person who is credited with saying the quote.
 
 This route should verify that both properties exist in the request query string and send a 400 response if it does not. If all is well, this route handler should add the new quote object to the data array and send back a response with the following shape:
 
