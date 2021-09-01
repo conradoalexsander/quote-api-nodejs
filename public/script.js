@@ -3,10 +3,16 @@ const fetchRandomButton = document.getElementById('fetch-random');
 const fetchByAuthorButton = document.getElementById('fetch-by-author');
 
 const quoteContainer = document.getElementById('quote-container');
+const authorContainer = document.getElementById('author-container');
+
 const quoteText = document.querySelector('.quote');
 const attributionText = document.querySelector('.attribution');
 
 const resetQuotes = () => {
+  quoteContainer.innerHTML = '';
+};
+
+const resetAuthors = () => {
   quoteContainer.innerHTML = '';
 };
 
@@ -28,6 +34,21 @@ const renderQuotes = (quotes = []) => {
     });
   } else {
     quoteContainer.innerHTML = '<p>Your request returned no quotes.</p>';
+  }
+};
+
+const renderAuthors = (authors = []) => {
+  resetQuotes();
+  if (authors.length > 0) {
+    authors.forEach(author => {
+      const newAuthor = document.createElement('div');
+      newAuthor.className = 'single-quote';
+      newAuthor.innerHTML = `<div class="quote-text">${quote.quote}</div>
+      <div class="attribution">- ${quote.person}-${quote.year}</div>`;
+      quoteContainer.appendChild(newAuthor);
+    });
+  } else {
+    quoteContainer.innerHTML = '<p>Your request returned no authors.</p>';
   }
 };
 
