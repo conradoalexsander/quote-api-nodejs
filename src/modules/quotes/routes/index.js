@@ -13,5 +13,6 @@ quoteRouter.get('/random', quoteController.showRandom);
 quoteRouter.get('/', quoteController.list);
 quoteRouter.post('/', quoteController.add);
 quoteRouter.put('/', ensureIdOnHeaders, quoteController.update);
+quoteRouter.delete('/', ensureIdOnHeaders, quoteController.delete);
 
 module.exports = quoteRouter;

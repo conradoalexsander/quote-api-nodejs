@@ -154,3 +154,32 @@ describe("updateQuote", () => {
         }
     });
 });
+
+describe("deleteQuote", () => {
+    it("Given a correct Id Should Delete The Quote", () => {
+
+        const quote = { quote: "My new quote", person: "John Test" };
+
+        var addedQuote = quotesRepository.addQuote(quote);
+
+        const { id } = addedQuote;
+
+        quotesRepository.deleteQuote({ id });
+
+        var quotes = quotesRepository.listAll();
+        var deletedQuoteIndex = quotes.indexOf(qt => qt.id == id);
+
+        expect(deletedQuoteIndex).toBe(-1);
+    });
+
+    it("Given an Incorrect Id, Should throw error", () => {
+
+        try {
+
+            quotesRepository.updateQuote({});
+
+        } catch (error) {
+            expect(error).toBeInstanceOf(AppError);
+        }
+    });
+});

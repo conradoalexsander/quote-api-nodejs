@@ -30,16 +30,27 @@ class QuotesRepository {
 
     updateQuote({ id, quote, person }) {
 
-        var index = this.quotes.findIndex(quote => quote.id == id);
+        var quoteIndex = this.quotes.findIndex(quote => quote.id == id);
 
-        if (index == -1) {
+        if (quoteIndex == -1) {
             throw new AppError("Wrong Id");
         }
 
-        if (person) quotes[index].person = person;
-        if (quote) quotes[index].quote = quote;
+        if (person) quotes[quoteIndex].person = person;
+        if (quote) quotes[quoteIndex].quote = quote;
 
-        return quotes[index];
+        return quotes[quoteIndex];
+    }
+
+    deleteQuote({ id }) {
+
+        var quoteIndex = this.quotes.findIndex(quote => quote.id == id);
+
+        if (quoteIndex == -1) {
+            throw new AppError("Wrong Id");
+        }
+
+        this.quotes.splice(quoteIndex, 1);
     }
 }
 

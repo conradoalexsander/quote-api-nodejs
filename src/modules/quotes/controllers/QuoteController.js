@@ -2,6 +2,7 @@ const AddQuoteService = require('../services/AddQuoteService.js');
 const GetRandomQuoteService = require('../services/GetRandomQuoteService.js');
 const ListQuotesService = require('../services/ListQuotesSerice.js');
 const UpdateQuoteService = require('../services/UpdateQuoteService.js');
+const DeleteQuoteService = require('../services/DeleteQuoteService.js');
 const { isQuote } = require('../utils/utils.js');
 
 class QuoteController {
@@ -10,11 +11,13 @@ class QuoteController {
         this.listQuotesService = new ListQuotesService(quoteRepository);
         this.addQuoteService = new AddQuoteService(quoteRepository);
         this.updateQuoteService = new UpdateQuoteService(quoteRepository);
+        this.deleteQuoteService = new DeleteQuoteService(quoteRepository);
 
         this.showRandom = this.showRandom.bind(this);
         this.list = this.list.bind(this);
         this.add = this.add.bind(this);
         this.update = this.update.bind(this);
+        this.delete = this.delete.bind(this);
     }
 
     showRandom(request, response) {
@@ -45,6 +48,14 @@ class QuoteController {
         let updatedQuote = this.updateQuoteService.execute({ id, quote, person });
 
         return response.status(200).json({ updatedQuote });
+    }
+
+    delete(request, response) {
+        const { id } = request.headers;
+
+        this.deleteQuoteService.execute({ id });
+
+        return response.status(201).send();
     }
 
 }
