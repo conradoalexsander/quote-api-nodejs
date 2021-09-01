@@ -1,17 +1,10 @@
 const QuotesRepository = require('../repositories/QuotesRepository');
 const GetRandomQuoteService = require('./GetRandomQuoteService');
-const quotesData = require('../../../shared/storage/fake-data');
-
-jest.mock('../repositories/QuotesRepository');
+const { quotes } = require('../../../shared/storage/fake-data');
 
 describe("Get Random Element", () => {
 
     it("Should get a random quote", () => {
-        QuotesRepository.mockImplementation(() => {
-            return {
-                listAll: () => { return quotesData },
-            };
-        });
 
         var quotesRepository = new QuotesRepository();
 
@@ -21,5 +14,5 @@ describe("Get Random Element", () => {
 
         expect(quote).toHaveProperty('quote');
         expect(quote).toHaveProperty('person');
-    })
-})
+    });
+});

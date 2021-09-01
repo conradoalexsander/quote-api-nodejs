@@ -8,6 +8,7 @@ const quotesRepository = new QuotesRepository();
 
 const quoteController = new QuoteController(quotesRepository);
 
-quoteRouter.get('/random', (request, response) => quoteController.showRandom(request, response));
+quoteRouter.get('/random', quoteController.showRandom);
+quoteRouter.get('/', (req, res) => quoteController.list(req, res));
 
 module.exports = quoteRouter;

@@ -1,5 +1,4 @@
 const { getRandomElement } = require('../../../shared/utils/utils');
-const QuotesRepository = require('../repositories/QuotesRepository');
 
 class GetRandomQuoteService {
 
@@ -8,7 +7,7 @@ class GetRandomQuoteService {
     }
 
     execute() {
-        const { quotes } = this.quotesRepository.listAll();
+        const quotes = this.quotesRepository.listAll();
 
         return getRandomElement(quotes);
     }

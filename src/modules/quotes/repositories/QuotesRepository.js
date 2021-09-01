@@ -2,7 +2,9 @@ const { quotes } = require("../../../shared/storage/data");
 
 class QuotesRepository {
     constructor() {
-        this.quotes = quotes
+        this.quotes = quotes;
+        this.listAll = this.listAll.bind(this);
+        this.listByPerson = this.listByPerson.bind(this);
     }
 
     listAll() {
