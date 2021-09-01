@@ -1,5 +1,3 @@
-const { isQuoteCorrect } = require('../utils/utils');
-
 class AddQuoteService {
 
     constructor(quotesRepository) {

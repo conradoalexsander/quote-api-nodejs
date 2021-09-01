@@ -43,8 +43,8 @@ const renderAuthors = (authors = []) => {
     authors.forEach(author => {
       const newAuthor = document.createElement('div');
       newAuthor.className = 'single-quote';
-      newAuthor.innerHTML = `<div class="quote-text">${quote.quote}</div>
-      <div class="attribution">- ${quote.person}-${quote.year}</div>`;
+      newAuthor.innerHTML = `<div class="quote-text">${author.biography}</div>
+      <div class="attribution">- ${author.name}</div>`;
       quoteContainer.appendChild(newAuthor);
     });
   } else {

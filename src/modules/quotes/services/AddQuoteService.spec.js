@@ -1,6 +1,5 @@
 const QuotesRepository = require('../repositories/QuotesRepository');
 const AddQuoteService = require('./AddQuoteService');
-const AppError = require('../../../shared/errors/AppError');
 
 var quotesRepository;
 var addQuoteService;

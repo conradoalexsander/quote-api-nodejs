@@ -1,6 +1,5 @@
 const QuotesRepository = require('../repositories/QuotesRepository');
 const GetRandomQuoteService = require('./GetRandomQuoteService');
-const { quotes } = require('../../../shared/storage/fake-data');
 
 describe("Get Random Element", () => {
 
