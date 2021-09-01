@@ -91,6 +91,60 @@ const quotes = [
   }
 ];
 
+const authors = [
+  {
+    id: "751f4ad9-909c-4027-9640-a680e06586cb",
+    name: "Cort Shaw",
+    biography: "Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo."
+  },
+  {
+    id: "5777f2ad-7dc4-49bf-989f-eaee67311333",
+    name: "Woody Meeus",
+    biography: "Donec dapibus. Duis at velit eu est congue elementum."
+  },
+  {
+    id: "47fdfc0d-1217-4ba6-9be3-46c11ee6fe00",
+    name: "Sabrina McCorry",
+    biography: "In blandit ultrices enim."
+  },
+  {
+    id: "6be2bdd1-d83c-483f-bdb2-9ca90629ca41",
+    name: "Allene Aggus",
+    biography: "Nulla mollis molestie lorem."
+  },
+  {
+    id: "20c3bc7d-ce62-400c-a005-f9e4fd505886",
+    name: "Saul Lucchi",
+    biography: "Nullam porttitor lacus at turpis. Donec posuere metus vitae ipsum."
+  },
+  {
+    id: "a86aeff0-96d8-454d-b246-45469c67b944",
+    name: "Hanni Browne",
+    biography: "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis."
+  },
+  {
+    id: "5e6827a8-2b50-4b65-bb95-119514bbd158",
+    name: "Giffer Lorait",
+    biography: "In hac habitasse platea dictumst."
+  },
+  {
+    id: "0cc8c9d4-74a4-46c2-be3c-1429e81beebf",
+    name: "Kingston Durkin",
+    biography: "Vivamus vel nulla eget eros elementum pellentesque."
+  },
+  {
+    id: "aa6eb87a-4e91-4e2e-808a-5b63dd463665",
+    name: "Yoko Pezey",
+    biography: "Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus."
+  },
+  {
+    id: "893585ef-aa12-438f-a5c7-1c095212a609",
+    name: "Obediah Clilverd",
+    biography: "Duis aliquam convallis nunc."
+  }
+];
+
 module.exports = {
-  quotes
+  quotes,
+  authors
 };
