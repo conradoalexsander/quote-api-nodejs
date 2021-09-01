@@ -84,7 +84,7 @@ The getRandomElement() function, which takes an array and returns a random eleme
 ```
 
 
-- [ ] 4. Your API should have a GET /api/quotes route. This route should return all quotes from the data if the request has no query params.
+- [X] 4. Your API should have a GET /api/quotes route. This route should return all quotes from the data if the request has no query params.
         The response body should have the following shape for all GET /api/quotes requests:
 
 ```JSON

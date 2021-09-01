@@ -1,4 +1,5 @@
 const { quotes } = require("../../../shared/storage/data");
+const { isQuote } = require("../utils/utils");
 
 class QuotesRepository {
     constructor() {
@@ -14,6 +15,15 @@ class QuotesRepository {
     listByPerson({ person }) {
         var filteredQuotes = this.quotes.filter(quote => quote.person === person);
         return filteredQuotes;
+    }
+
+    addQuote({ quote, person }) {
+
+        isQuote({ quote, person });
+
+        this.quotes.push({ quote, person });
+
+        return { person, quote };
     }
 }
 
