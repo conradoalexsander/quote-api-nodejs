@@ -87,3 +87,70 @@ describe("addQuote", () => {
         }
     });
 });
+
+describe("updateQuote", () => {
+    it("Given a correct Id, Quote And Person, Should Update it", () => {
+
+        const quote = { quote: "My new quote", person: "John Test" };
+
+        var addedQuote = quotesRepository.addQuote(quote);
+
+        const { id } = addedQuote;
+
+        const newQuote = "Perfection";
+        const newPerson = "John Test II";
+
+        var updatedQuote = quotesRepository.updateQuote({ id, quote: newQuote, person: newPerson });
+
+        expect(updatedQuote.id).toBe(id);
+        expect(updatedQuote.quote).toBe(newQuote);
+        expect(updatedQuote.person).toBe(newPerson);
+
+    });
+    it("Given a correct Id, Person, Should Update it And Kepps Original Quote Value", () => {
+
+        const quote = { quote: "My new quote", person: "John Test" };
+
+        var addedQuote = quotesRepository.addQuote(quote);
+
+        const { id, quote: previousQuote } = addedQuote;
+
+        const newPerson = "John Test II";
+
+        var updatedQuote = quotesRepository.updateQuote({ id, person: newPerson });
+
+        expect(updatedQuote.id).toBe(id);
+        expect(updatedQuote.quote).toBe(previousQuote);
+        expect(updatedQuote.person).toBe(newPerson);
+
+    });
+
+    it("Given a correct Id, Quote, Should Update it And Kepps Original Person Value", () => {
+
+        const quote = { quote: "My new quote", person: "John Test" };
+
+        var addedQuote = quotesRepository.addQuote(quote);
+
+        const { id, person: previousPerson } = addedQuote;
+
+        const newQuote = "Perfection";
+
+        var updatedQuote = quotesRepository.updateQuote({ id, quote: newQuote });
+
+        expect(updatedQuote.id).toBe(id);
+        expect(updatedQuote.quote).toBe(newQuote);
+        expect(updatedQuote.person).toBe(previousPerson);
+
+    });
+
+    it("Given an incorrect Id and Quote, Should throw error", () => {
+
+        try {
+
+            quotesRepository.updateQuote({});
+
+        } catch (error) {
+            expect(error).toBeInstanceOf(AppError);
+        }
+    });
+});

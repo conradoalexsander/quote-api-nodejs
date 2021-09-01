@@ -11,6 +11,7 @@ describe("ListQuotesService", () => {
         var quotes = listQuotesService.execute();
 
         quotes.forEach(quote => {
+            expect(quote).toHaveProperty('id');
             expect(quote).toHaveProperty('quote');
             expect(quote).toHaveProperty('person');
         });
@@ -27,6 +28,7 @@ describe("ListQuotesService", () => {
         var quotes = listQuotesService.execute(person);
 
         quotes.forEach(quote => {
+            expect(quote).toHaveProperty('id');
             expect(quote).toHaveProperty('quote');
             expect(quote).toHaveProperty('person');
         });

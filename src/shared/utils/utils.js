@@ -3,6 +3,12 @@ const getRandomElement = arr => {
   return arr[Math.floor(Math.random() * arr.length)];
 };
 
+
+const hasId = ({ id }) => {
+  if (!person || !quote)
+    throw new AppError("Wrong parameters", 400);
+};
+
 module.exports = {
   getRandomElement
 };

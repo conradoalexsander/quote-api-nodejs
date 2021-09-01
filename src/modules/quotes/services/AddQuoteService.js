@@ -1,4 +1,3 @@
-const { getRandomElement } = require('../../../shared/utils/utils');
 const { isQuote } = require('../utils/utils');
 
 class AddQuoteService {

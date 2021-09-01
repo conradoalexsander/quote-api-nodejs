@@ -1,11 +1,11 @@
+const { uuid } = require("uuidv4");
+const AppError = require("../../../shared/errors/AppError");
 const { quotes } = require("../../../shared/storage/data");
 const { isQuote } = require("../utils/utils");
 
 class QuotesRepository {
     constructor() {
         this.quotes = quotes;
-        this.listAll = this.listAll.bind(this);
-        this.listByPerson = this.listByPerson.bind(this);
     }
 
     listAll() {
@@ -21,9 +21,25 @@ class QuotesRepository {
 
         isQuote({ quote, person });
 
-        this.quotes.push({ quote, person });
+        const id = uuid();
 
-        return { person, quote };
+        this.quotes.push({ id, quote, person });
+
+        return { id, person, quote };
+    }
+
+    updateQuote({ id, quote, person }) {
+
+        var index = this.quotes.findIndex(quote => quote.id == id);
+
+        if (index == -1) {
+            throw new AppError("Wrong Id");
+        }
+
+        if (person) quotes[index].person = person;
+        if (quote) quotes[index].quote = quote;
+
+        return quotes[index];
     }
 }
 
