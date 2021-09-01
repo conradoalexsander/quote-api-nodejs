@@ -19,7 +19,7 @@ describe("Get Random Element", () => {
 
         var quote = getRandomQuotesService.execute();
 
-        expect(quote).not.toBeNull();
-        expect(quote).not.toBeUndefined();
+        expect(quote).toHaveProperty('quote');
+        expect(quote).toHaveProperty('person');
     })
 })

@@ -1,12 +1,17 @@
-const quotes = require("../../../shared/storage/data");
+const { quotes } = require("../../../shared/storage/data");
 
 class QuotesRepository {
     constructor() {
-        this.data = quotes
+        this.quotes = quotes
     }
 
     listAll() {
-        return this.data;
+        return this.quotes;
+    }
+
+    listByPerson({ person }) {
+        var filteredQuotes = this.quotes.filter(quote => quote.person === person);
+        return filteredQuotes;
     }
 }
 

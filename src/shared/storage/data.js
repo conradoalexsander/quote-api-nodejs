@@ -51,6 +51,14 @@ const quotes = [
     quote: 'If you tell me precisely what it is a machine cannot do, then I can always make a machine which will do just that.',
     person: 'Jon von Neumann'
   },
+  {
+    quote: 'I will test you once',
+    person: 'John Test'
+  },
+  {
+    quote: 'I will test you twice',
+    person: 'John Test'
+  }
 ];
 
 module.exports = {
