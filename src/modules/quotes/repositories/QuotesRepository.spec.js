@@ -1,6 +1,8 @@
 const AppError = require("../../../shared/errors/AppError");
 const QuotesRepository = require("./QuotesRepository");
 
+const fakeQuote = { quote: "My new quote", person: "John Test", year: 2000 };
+
 var quotesRepository;
 
 beforeEach(() => {
@@ -64,14 +66,12 @@ describe("addQuote", () => {
 
     it("Given a correct param, should add quotes", () => {
 
-        const quote = { quote: "My new quote", person: "John Test" };
-
-        var addedQuote = quotesRepository.addQuote(quote);
+        var addedQuote = quotesRepository.addQuote(fakeQuote);
 
         expect(addedQuote).not.toBeNull();
         expect(addedQuote).not.toBeUndefined();
-        expect(addedQuote.person).toBe(quote.person);
-        expect(addedQuote.quote).toBe(quote.quote);
+        expect(addedQuote.person).toBe(fakeQuote.person);
+        expect(addedQuote.quote).toBe(fakeQuote.quote);
     });
 
     it("Given an incorrect param, should throw error", () => {
@@ -91,9 +91,7 @@ describe("addQuote", () => {
 describe("updateQuote", () => {
     it("Given a correct Id, Quote And Person, Should Update it", () => {
 
-        const quote = { quote: "My new quote", person: "John Test" };
-
-        var addedQuote = quotesRepository.addQuote(quote);
+        var addedQuote = quotesRepository.addQuote(fakeQuote);
 
         const { id } = addedQuote;
 
@@ -109,9 +107,7 @@ describe("updateQuote", () => {
     });
     it("Given a correct Id, Person, Should Update it And Kepps Original Quote Value", () => {
 
-        const quote = { quote: "My new quote", person: "John Test" };
-
-        var addedQuote = quotesRepository.addQuote(quote);
+        var addedQuote = quotesRepository.addQuote(fakeQuote);
 
         const { id, quote: previousQuote } = addedQuote;
 
@@ -127,9 +123,7 @@ describe("updateQuote", () => {
 
     it("Given a correct Id, Quote, Should Update it And Kepps Original Person Value", () => {
 
-        const quote = { quote: "My new quote", person: "John Test" };
-
-        var addedQuote = quotesRepository.addQuote(quote);
+        var addedQuote = quotesRepository.addQuote(fakeQuote);
 
         const { id, person: previousPerson } = addedQuote;
 
@@ -158,9 +152,7 @@ describe("updateQuote", () => {
 describe("deleteQuote", () => {
     it("Given a correct Id Should Delete The Quote", () => {
 
-        const quote = { quote: "My new quote", person: "John Test" };
-
-        var addedQuote = quotesRepository.addQuote(quote);
+        var addedQuote = quotesRepository.addQuote(fakeQuote);
 
         const { id } = addedQuote;
 

@@ -11,18 +11,10 @@ beforeEach(() => {
 });
 
 it("Given a Correct Quote, Should Add it", () => {
-    var quote = addQuoteService.execute({ quote: "My new quote", person: "John Test" });
+    var quote = addQuoteService.execute({ quote: "My new quote", person: "John Test", year: 2000 });
 
     expect(quote).toHaveProperty('quote');
     expect(quote).toHaveProperty('person');
+    expect(quote).toHaveProperty('year');
 });
 
-it("Given an Incorrect Quote, Should Not Add it", () => {
-
-    try {
-        addQuoteService.execute({});
-
-    } catch (error) {
-        expect(error).toBeInstanceOf(AppError);
-    }
-});

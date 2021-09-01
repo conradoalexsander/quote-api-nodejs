@@ -1,7 +1,7 @@
 const { uuid } = require("uuidv4");
 const AppError = require("../../../shared/errors/AppError");
 const { quotes } = require("../../../shared/storage/data");
-const { isQuote } = require("../utils/utils");
+const { isQuoteCorrect } = require("../utils/utils");
 
 class QuotesRepository {
     constructor() {
@@ -17,18 +17,18 @@ class QuotesRepository {
         return filteredQuotes;
     }
 
-    addQuote({ quote, person }) {
+    addQuote({ quote, person, year }) {
 
-        isQuote({ quote, person });
+        isQuoteCorrect({ quote, person, year });
 
         const id = uuid();
 
         this.quotes.push({ id, quote, person });
 
-        return { id, person, quote };
+        return { id, person, quote, year };
     }
 
-    updateQuote({ id, quote, person }) {
+    updateQuote({ id, quote, person, year }) {
 
         var quoteIndex = this.quotes.findIndex(quote => quote.id == id);
 
@@ -38,6 +38,7 @@ class QuotesRepository {
 
         if (person) quotes[quoteIndex].person = person;
         if (quote) quotes[quoteIndex].quote = quote;
+        if (year) quotes[quoteIndex].year = year;
 
         return quotes[quoteIndex];
     }

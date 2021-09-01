@@ -5,8 +5,8 @@ class UpdateQuoteService {
         this.execute = this.execute.bind(this);
     }
 
-    execute({ id, person, quote }) {
-        return this.quotesRepository.updateQuote({ id, person, quote });
+    execute({ id, person, quote, year }) {
+        return this.quotesRepository.updateQuote({ id, person, quote, year });
     }
 }
 

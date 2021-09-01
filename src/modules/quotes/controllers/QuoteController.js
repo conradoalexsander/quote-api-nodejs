@@ -3,7 +3,7 @@ const GetRandomQuoteService = require('../services/GetRandomQuoteService.js');
 const ListQuotesService = require('../services/ListQuotesSerice.js');
 const UpdateQuoteService = require('../services/UpdateQuoteService.js');
 const DeleteQuoteService = require('../services/DeleteQuoteService.js');
-const { isQuote } = require('../utils/utils.js');
+const { isQuoteCorrect } = require('../utils/utils.js');
 
 class QuoteController {
     constructor(quoteRepository) {
@@ -35,7 +35,7 @@ class QuoteController {
     }
 
     add(request, response) {
-        isQuote(request.query);
+        isQuoteCorrect(request.query);
 
         let quote = this.addQuoteService.execute(request.query);
 
@@ -44,8 +44,8 @@ class QuoteController {
 
     update(request, response) {
         const { id } = request.headers;
-        const { quote, person } = request.body;
-        let updatedQuote = this.updateQuoteService.execute({ id, quote, person });
+        const { quote, person, year } = request.body;
+        let updatedQuote = this.updateQuoteService.execute({ id, quote, person, year });
 
         return response.status(200).json({ updatedQuote });
     }

@@ -8,13 +8,13 @@ const attributionText = document.querySelector('.attribution');
 
 const resetQuotes = () => {
   quoteContainer.innerHTML = '';
-}
+};
 
 const renderError = response => {
   quoteContainer.innerHTML = `<p>Your request returned an error from the server: </p>
 <p>Code: ${response.status}</p>
 <p>${response.statusText}</p>`;
-}
+};
 
 const renderQuotes = (quotes = []) => {
   resetQuotes();
@@ -23,13 +23,13 @@ const renderQuotes = (quotes = []) => {
       const newQuote = document.createElement('div');
       newQuote.className = 'single-quote';
       newQuote.innerHTML = `<div class="quote-text">${quote.quote}</div>
-      <div class="attribution">- ${quote.person}</div>`;
+      <div class="attribution">- ${quote.person}-${quote.year}</div>`;
       quoteContainer.appendChild(newQuote);
     });
   } else {
     quoteContainer.innerHTML = '<p>Your request returned no quotes.</p>';
   }
-}
+};
 
 fetchAllButton.addEventListener('click', () => {
   fetch('/api/quotes')

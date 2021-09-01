@@ -1,4 +1,4 @@
-const { isQuote } = require('../utils/utils');
+const { isQuoteCorrect } = require('../utils/utils');
 
 class AddQuoteService {
 
@@ -7,10 +7,9 @@ class AddQuoteService {
         this.execute = this.execute.bind(this);
     }
 
-    execute({ person, quote }) {
-        isQuote({ person, quote });
+    execute({ person, quote, year }) {
 
-        return this.quotesRepository.addQuote({ person, quote });
+        return this.quotesRepository.addQuote({ person, quote, year });
     }
 }
 

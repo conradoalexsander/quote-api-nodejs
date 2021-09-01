@@ -5,19 +5,20 @@ const DeleteQuoteService = require("./DeleteQuoteService");
 
 var quotesRepository;
 var addQuoteService;
+var addedQuote;
 
 beforeEach(() => {
     quotesRepository = new QuotesRepository();
     addQuoteService = new AddQuoteService(quotesRepository);
     deleteQuoteService = new DeleteQuoteService(quotesRepository);
+
+    const quote = { quote: "My new quote", person: "John Test", year: 2000 };
+
+    addedQuote = addQuoteService.execute(quote);
 });
 
 describe("deleteQuote", () => {
     it("Given A correct Id, Should Delete The Quote it", () => {
-
-        const quote = { quote: "My new quote", person: "John Test" };
-
-        var addedQuote = addQuoteService.execute(quote);
 
         const { id } = addedQuote;
 
